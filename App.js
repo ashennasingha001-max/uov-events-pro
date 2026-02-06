@@ -22,7 +22,7 @@ import SignupScreen from './src/screens/SignupScreen';
 
 LogBox.ignoreLogs(['Warning: ...']);
 
-// Native Splash එක පෙන්වාගෙන ඉන්නවා අපේ Custom එක ලෑස්ති වෙනකම්
+
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
 const Stack = createStackNavigator();
@@ -34,14 +34,14 @@ export default function App() {
   useEffect(() => {
     async function prepare() {
       try {
-        // Firebase Auth State එක චෙක් කරලා යන්න ඕන තැන තීරණය කරනවා
+        
         const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
             setInitialRoute("Home");
           } else {
             setInitialRoute("Login");
           }
-          setAppIsReady(true); // ඩේටා ලැබුණු ගමන් appIsReady true කරනවා
+          setAppIsReady(true); 
         });
 
         return unsubscribe;
@@ -55,7 +55,7 @@ export default function App() {
 
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
-      // Native splash එක වහාම අයින් කරලා Custom එකට ඉඩ දෙනවා
+      
       await SplashScreen.hideAsync();
     }
   }, [appIsReady]);
@@ -65,16 +65,16 @@ export default function App() {
   }
 
   return (
-    // පසුබිම නිල් පාට කිරීමෙන් අර රෝස පාට පෙනීම වළක්වනවා
+    
     <View style={{ flex: 1, backgroundColor: '#4a00e0' }} onLayout={onLayoutRootView}>
       <NavigationContainer>
         <Stack.Navigator 
           initialRouteName="Splash" 
           screenOptions={{ 
             headerShown: false,
-            // මුළු Navigation එකේම පසුබිම නිල් පාට කරනවා
+            
             cardStyle: { backgroundColor: '#4a00e0' },
-            animationEnabled: false, // Splash එකේදී transition එක smooth වීමට
+            animationEnabled: false,
           }}
         >
           {/* Custom Splash Screen */}
