@@ -29,7 +29,7 @@ export default function AddEventScreen({ navigation }) {
         description,
         joinedUsers: [],
         createdAt: new Date().toISOString(),
-        createdBy: auth.currentUser.uid // ✅ මේක තමයි අලුතින් එකතු කළේ! (හැදුවේ කවුද කියලා Save වෙනවා)
+        createdBy: auth.currentUser.uid 
       });
 
       setLoading(false);
