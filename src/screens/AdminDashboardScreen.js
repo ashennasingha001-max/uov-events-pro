@@ -21,7 +21,7 @@ export default function AdminDashboardScreen({ navigation }) {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // දැනට Log වී සිටින Admin ගේ ID එක (තමන්වම Delete කරගන්න එක නවත්වන්න)
+ 
   const currentAdminId = auth.currentUser?.uid;
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export default function AdminDashboardScreen({ navigation }) {
   };
 
   const renderUser = ({ item }) => {
-    // Admin ට තමන්වම Delete කරගන්න බෑ
+    ෑ
     const isMe = item.id === currentAdminId;
 
     return (
