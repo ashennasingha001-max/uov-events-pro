@@ -41,3 +41,9 @@ app-example
 # generated native folders
 /ios
 /android
+.README.md
+
+# Firebase & Env Config
+google-services.json
+GoogleService-Info.plist
+.env
