@@ -45,19 +45,19 @@ export default function SignupScreen({ navigation }) {
     try {
       const cleanRegNo = regNo.trim().toUpperCase();
 
-      // ✅ 1. Firebase Whitelist එක චෙක් කිරීම (Real-time)
+      
       const whitelistRef = collection(db, "whitelist");
       const q = query(whitelistRef, where("regNo", "==", cleanRegNo));
       const querySnapshot = await getDocs(q);
 
-      // පරණ වයිට්ලිස්ට් ලොජික් එක වෙනුවට මෙය භාවිතා වේ
+      ේ
       let status = !querySnapshot.empty ? 'approved' : 'pending';
 
-      // ✅ 2. Firebase Auth හරහා User හදනවා
+     
       const userCredential = await createUserWithEmailAndPassword(auth, email.trim(), password);
       const user = userCredential.user;
 
-      // ✅ 3. Firestore එකේ User Profile එක Save කරනවා
+      
       await setDoc(doc(db, "users", user.uid), {
         fullName: fullName.trim(),
         regNo: cleanRegNo,
@@ -76,7 +76,7 @@ export default function SignupScreen({ navigation }) {
           [{ text: "OK", onPress: () => navigation.replace('Home') }]
         );
       } else {
-        // වයිට්ලිස්ට් එකේ නැතිනම් 'pending' තත්ත්වයට වැටේ
+        ේ
         Alert.alert(
           "Pending ⏳", 
           "Reg No not in the official whitelist. An admin will review your account soon.", 
