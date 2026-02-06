@@ -17,7 +17,7 @@ import { auth, db } from '../config/firebase';
 export default function EventDetailsScreen({ route, navigation }) {
   const { event } = route.params;
   const [joined, setJoined] = useState(false);
-  const [userRole, setUserRole] = useState('student'); // Role එක බලන්න ඕන
+  const [userRole, setUserRole] = useState('student'); // Role 
   const userId = auth.currentUser?.uid;
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function EventDetailsScreen({ route, navigation }) {
       setJoined(true);
     }
 
-    // Check User Role (Admin ද Organizer ද බලන්න)
+    // Check User Role 
     const fetchUserRole = async () => {
       const userDoc = await getDoc(doc(db, "users", userId));
       if (userDoc.exists()) {
@@ -57,12 +57,12 @@ export default function EventDetailsScreen({ route, navigation }) {
         { text: "Cancel", style: "cancel" },
         { 
           text: "Delete", 
-          style: "destructive", // රතු පාටින් පෙන්නන්න
+          style: "destructive", 
           onPress: async () => {
             try {
               await deleteDoc(doc(db, "events", event.id));
               Alert.alert("Deleted", "Event has been removed successfully.");
-              navigation.goBack(); // Home එකට යවනවා
+              navigation.goBack(); 
             } catch (error) {
               Alert.alert("Error", "Could not delete event: " + error.message);
             }
