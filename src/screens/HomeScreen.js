@@ -32,7 +32,7 @@ export default function HomeScreen({ navigation }) {
   const [userRole, setUserRole] = useState('student');
   const [userId, setUserId] = useState('');
 
-  // 1. User Role & ID ගැනීම
+  // 1. User Role & ID 
   useEffect(() => {
     const fetchUserRole = async () => {
       try {
@@ -51,7 +51,7 @@ export default function HomeScreen({ navigation }) {
     fetchUserRole();
   }, []);
 
-  // 2. Events Fetch කිරීම (Real-time)
+  // 2. Events Fetch(Real-time)
   useEffect(() => {
     const q = query(collection(db, "events"), orderBy("createdAt", "desc"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
