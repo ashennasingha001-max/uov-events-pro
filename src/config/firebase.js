@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
-// getAuth වෙනුවට initializeAuth ගන්නවා (Mobile වලට හරියන විදිහට)
+
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import { getReactNativePersistence, initializeAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// TODO: ඔයාගේ Console එකෙන් ගත්ත ඇත්ත Keys මෙතනට දාන්න
+
 const firebaseConfig = {
   apiKey: "AIzaSyB34ElszTpYYL1m0TytibTpSf6KopU6OvI",
   authDomain: "uov-events.firebaseapp.com",
@@ -17,7 +17,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// මෙන්න මේ කෑල්ල තමයි Crash වෙන එක නවත්තන්නේ 👇
+
 const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 });
